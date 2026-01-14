@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Seguridad del correo electrónico</title>
+
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="modal" id="modalNombre">
+  <div class="modal-content">
+    <h3>¿Cuál es tu nombre?</h3>
+    <input type="text" id="nombreInput" placeholder="Escribe tu nombre">
+    <button onclick="guardarNombre()">Entrar</button>
+  </div>
+</div>
+
+<header>
+<nav>
+<h1>Seguridad del correo</h1>
+<ul>
+<li><a href="index.html">Inicio</a></li>
+<li><a href="conceptos.html">Conceptos</a></li>
+<li><a href="riesgos.html">Riesgos</a></li>
+<li><a href="buenas.html">Buenas prácticas</a></li>
+<li><a href="juegos.html">Juego</a></li>
+</ul>
+</nav>
+</header>
+
+<section class="hero">
+<h2>Seguridad del correo electrónico</h2>
+<p>Protección de la información personal y académica en entornos escolares.</p>
+</section>
+
+<div class="bienvenida">
+  <h3>Bienvenido</h3>
+  <p id="nombreUsuario"></p>
+</div>
+
+<footer>
+<p>Proyecto educativo • 2025</p>
+</footer>
+
+<script>
+function guardarNombre(){
+  const nombre = document.getElementById("nombreInput").value;
+  if(nombre.trim() !== ""){
+    localStorage.setItem("nombreUsuario", nombre);
+    document.getElementById("modalNombre").style.display="none";
+    document.getElementById("nombreUsuario").innerText = nombre;
+  }
+}
+
+window.onload = function(){
+  const nombre = localStorage.getItem("nombreUsuario");
+  if(nombre){
+    document.getElementById("modalNombre").style.display="none";
+    document.getElementById("nombreUsuario").innerText = nombre;
+  }
+}
+</script>
+
+</body>
+</html>
